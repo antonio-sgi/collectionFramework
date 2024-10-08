@@ -415,11 +415,26 @@ public class App {
             
           }).average();
 
-          double salarioDePromedio;
-          
+          double salarioPromedio;
+
           if (opcionalDePromedio.isPresent())
                 System.out.println("El salario promedio es " + opcionalDePromedio.getAsDouble());
 
+        
+          /* Sintasis de las expresiones lambda:
+           * https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html
+          */
+
+          OptionalDouble optionalDeSalario = elementosVarios.stream()
+           .filter(o -> o instanceof Empleado empleado && 
+                 empleado.getGenero().equals(Genero.MUJER)
+                 
+                 
+          ).mapToDouble(obj -> { Empleado empleado = (Empleado) obj; 
+                                return empleado.getSalario();
+                              }
+                 
+          ).average();
 
 
     }
